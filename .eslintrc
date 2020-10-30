@@ -1,0 +1,59 @@
+{
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es2020": true,
+    "jest": true,
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "jsx": true,
+    }
+  },
+  "plugins": ["prettier", "react-hooks"],
+  "rules": {
+    "jsx-a11y/accessible-emoji": "warn",
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        "aspects": ["invalidHref"]
+      }
+    ],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowTaggedTemplates": true
+      }
+    ],
+    "prettier/prettier": [
+      "warn",
+      {
+        "trailingComma": "es5",
+        "semi": true,
+      },
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "// added rules to prevent build failures": ["off"],
+    "import/no-extraneous-dependencies": "warn",
+    "import/prefer-default-export": "warn",
+    "no-nested-ternary": "warn",
+    "no-shadow": "warn",
+    "no-unused-vars": "warn",
+    "object-shorthand": "warn",
+    "prefer-promise-reject-errors": "warn",
+    "jsx-a11y/label-has-associated-control": "warn",
+    "react/button-has-type": "warn",
+    "react/jsx-boolean-value": "warn",
+    "react/jsx-props-no-spreading": "warn",
+    "react/prefer-stateless-function": "warn",
+    "react/prop-types": "warn",
+  }
+}
