@@ -31,8 +31,9 @@
     "prettier/prettier": [
       "warn",
       {
-        "trailingComma": "es5",
+        "bracketSpacing": true,
         "semi": true,
+        "trailingComma": "es5",
       },
     ],
     "react/jsx-filename-extension": [
