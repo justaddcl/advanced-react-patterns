@@ -5,7 +5,7 @@ import React from 'react';
 import warning from 'warning';
 import { Switch } from '../switch';
 
-const callAll = (...fns) => (...args) => fns.forEach((fn) => fn?.(...args));
+const callAll = (...fns) => (...args) => fns.forEach(fn => fn?.(...args));
 
 const actionTypes = {
   toggle: 'toggle',
@@ -86,19 +86,21 @@ function useToggle({
   const onIsControlled = controlledOn != null;
   const on = onIsControlled ? controlledOn : state.on;
 
-  useControlledSwitchWarning(controlledOn, 'on', 'useToggle');
-  useControlledSwitchWarning(
-    controlledOn,
-    'on',
-    'useToggle',
-    !!onChange,
-    readOnly,
-    'readOnly',
-    'initialOn',
-    'onChange'
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    useControlledSwitchWarning(controlledOn, 'on', 'useToggle');
+    useControlledSwitchWarning(
+      controlledOn,
+      'on',
+      'useToggle',
+      !!onChange,
+      readOnly,
+      'readOnly',
+      'initialOn',
+      'onChange'
+    );
+  }
 
-  const dispatchWithOnChange = (action) => {
+  const dispatchWithOnChange = action => {
     if (!onIsControlled) dispatch(action);
 
     onChange?.(reducer({ ...state, on }, action), action);
@@ -151,7 +153,7 @@ function App() {
       return;
     }
     setBothOn(state.on);
-    setTimesClicked((c) => c + 1);
+    setTimesClicked(c => c + 1);
   }
 
   function handleResetClick() {
